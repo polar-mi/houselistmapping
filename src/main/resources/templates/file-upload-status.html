@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Upload the House list CSV File</title>
+
+    <!--Bootstrap 4-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+</head>
+<body>
+
+<div class="container py-5">
+    <div class="row">
+        <div class="col-10 mx-auto">
+            <h1>POLAR Houselist </h1>
+            <!--if there is any error on upload display it -->
+            <div class="alert alert-danger" role="alert" th:if="${!status}">
+                <strong>Error:</strong>
+                <span th:text="${message}"></span>
+            </div>
+
+            <!--list the content of house list here -->
+            <table class="table table-striped" th:if="${status}">
+                <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Location</th>
+                    <th scope="col">Code (ATC /PZN)</th>
+                    <th scope="col">PZN_Text</th>
+                    <th scope="col">ATC_Code</th>
+                    <th scope="col">ATC_TEXT</th>
+                    <th scope="col">ASK_ID</th>
+                    <th scope="col">ASK_Text</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="hauslist, i : ${hauslists}">
+                    <th scope="row" th:text="${i.index + 1}"></th>
+                    <td th:text="${hauslist.location}"></td>
+                    <td th:text="${hauslist.code}"></td>
+                    <td th:text="${hauslist.pzn}"></td>
+                    <td th:text="${hauslist.atcid}"></td>
+                    <td th:text="${hauslist.atctext}"></td>
+                    <td th:text="${hauslist.askid}"></td>
+                    <td th:text="${hauslist.asktext}"></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
