@@ -15,8 +15,11 @@ to correct attributes in resources we first upload the data to a frontend to vie
 #### To start 
 
 1. clone the repository using git clone
-2. then navigate to parse-med directory 
-    1. from parse-med directory execute the following command
+    ```
+      git clone https://github.com/polar-mi/houselistmapping.git
+    ```
+2. then navigate to 'houselistmapping' directory 
+    1. from 'houselistmapping' directory execute the following command
     ```
       gradlew bootRun
     ```
